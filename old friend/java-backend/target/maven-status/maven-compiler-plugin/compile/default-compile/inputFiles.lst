@@ -1,0 +1,13 @@
+C:\Users\28614\Desktop\作业\软工\old friend\java-backend\src\main\java\com\elderly\assistant\common\Result.java
+C:\Users\28614\Desktop\作业\软工\old friend\java-backend\src\main\java\com\elderly\assistant\config\CorsConfig.java
+C:\Users\28614\Desktop\作业\软工\old friend\java-backend\src\main\java\com\elderly\assistant\controller\PaymentController.java
+C:\Users\28614\Desktop\作业\软工\old friend\java-backend\src\main\java\com\elderly\assistant\controller\VoiceController.java
+C:\Users\28614\Desktop\作业\软工\old friend\java-backend\src\main\java\com\elderly\assistant\ElderlyAssistantApplication.java
+C:\Users\28614\Desktop\作业\软工\old friend\java-backend\src\main\java\com\elderly\assistant\entity\PaymentItem.java
+C:\Users\28614\Desktop\作业\软工\old friend\java-backend\src\main\java\com\elderly\assistant\entity\TaxiOrder.java
+C:\Users\28614\Desktop\作业\软工\old friend\java-backend\src\main\java\com\elderly\assistant\entity\UserBase.java
+C:\Users\28614\Desktop\作业\软工\old friend\java-backend\src\main\java\com\elderly\assistant\mapper\PaymentMapper.java
+C:\Users\28614\Desktop\作业\软工\old friend\java-backend\src\main\java\com\elderly\assistant\mapper\TaxiOrderMapper.java
+C:\Users\28614\Desktop\作业\软工\old friend\java-backend\src\main\java\com\elderly\assistant\mapper\UserMapper.java
+C:\Users\28614\Desktop\作业\软工\old friend\java-backend\src\main\java\com\elderly\assistant\service\PaymentService.java
+C:\Users\28614\Desktop\作业\软工\old friend\java-backend\src\main\java\com\elderly\assistant\service\VoiceService.java

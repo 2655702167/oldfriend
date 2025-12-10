@@ -1,0 +1,16 @@
+com\elderly\assistant\controller\PaymentController$PaymentOrder.class
+com\elderly\assistant\entity\UserBase.class
+com\elderly\assistant\service\VoiceService.class
+com\elderly\assistant\service\PaymentService.class
+com\elderly\assistant\entity\TaxiOrder.class
+com\elderly\assistant\config\CorsConfig.class
+com\elderly\assistant\controller\PaymentController$VoicePayResponse.class
+com\elderly\assistant\mapper\PaymentMapper.class
+com\elderly\assistant\controller\PaymentController$VoicePayRequest.class
+com\elderly\assistant\controller\PaymentController.class
+com\elderly\assistant\common\Result.class
+com\elderly\assistant\ElderlyAssistantApplication.class
+com\elderly\assistant\entity\PaymentItem.class
+com\elderly\assistant\mapper\TaxiOrderMapper.class
+com\elderly\assistant\mapper\UserMapper.class
+com\elderly\assistant\controller\VoiceController.class
