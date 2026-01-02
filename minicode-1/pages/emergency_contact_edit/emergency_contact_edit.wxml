@@ -1,0 +1,52 @@
+<view class="container">
+  <view class="card">
+    <view class="header">
+      <text class="title" style="font-size: {{fontSizes.title}};">紧急联系人管理</text>
+    </view>
+
+    <view class="contact-list">
+      <block wx:for="{{contacts}}" wx:key="index">
+        <view class="contact-item">
+          <view class="item-icon-box">
+            <image src="/images/user_avatar.png" mode="aspectFit" class="icon"></image>
+          </view>
+          <view class="item-content">
+            <input 
+              class="item-input name" 
+              value="{{item.name}}" 
+              placeholder="姓名" 
+              disabled="{{!isEditing}}"
+              bindinput="onInputName"
+              data-index="{{index}}"
+              style="font-size: {{fontSizes.content}};"
+            />
+            <input 
+              class="item-input phone" 
+              value="{{item.phone}}" 
+              placeholder="电话号码" 
+              disabled="{{!isEditing}}"
+              bindinput="onInputPhone"
+              data-index="{{index}}"
+              style="font-size: {{fontSizes.content}};"
+            />
+          </view>
+          <view class="delete-btn" wx:if="{{isEditing}}" bindtap="deleteContact" data-index="{{index}}">
+            <text style="color: #ff4d4f; font-weight: bold; font-size: {{fontSizes.content}};">删除</text>
+          </view>
+        </view>
+      </block>
+      
+      <view class="add-btn-area" wx:if="{{isEditing}}">
+        <button class="add-btn" bindtap="addContact" style="font-size: {{fontSizes.content}};">+ 添加联系人</button>
+      </view>
+    </view>
+    
+    <button class="action-btn" bindtap="{{isEditing ? 'saveContacts' : 'startEditing'}}" style="font-size: {{fontSizes.button}};">
+      {{isEditing ? '保存' : '编辑'}}
+    </button>
+
+    <view class="tips" style="font-size: {{fontSizes.time}};">
+      提示：设置后，在紧急求助页面可直接点击呼叫。
+    </view>
+  </view>
+</view>

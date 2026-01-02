@@ -1,0 +1,70 @@
+.container {
+  width: 100%;
+  height: 100vh;
+}
+
+.share-btn-container {
+  position: absolute;
+  top: 200rpx; /* 下移以避开胶囊按钮 */
+  right: 30rpx;
+  z-index: 999;
+}
+
+.share-btn {
+  background-color: #ffffff; /* 白色背景 */
+  border-radius: 12rpx;
+  padding: 15rpx 25rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.3); /* 明显的阴影，增加立体感 */
+  border: 1rpx solid #e0e0e0; /* 边框 */
+  line-height: normal; /* 重置行高 */
+  width: auto !important; /* 覆盖默认宽度 */
+  margin: 0 !important; /* 覆盖默认边距 */
+  font-weight: normal;
+}
+
+.btn-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.share-icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin-bottom: 8rpx;
+}
+
+.share-text {
+  font-size: 24rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.address-card {
+  position: absolute;
+  bottom: 60rpx;
+  left: 30rpx;
+  right: 30rpx;
+  background-color: white;
+  padding: 30rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.1);
+}
+
+.address-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.address-detail {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.4;
+}

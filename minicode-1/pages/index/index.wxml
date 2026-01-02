@@ -1,0 +1,58 @@
+<!--index.wxml-->
+<view style="height: 60rpx;"></view>
+<view style="height: 140rpx; font-size: {{fontSizes.title}};display: flex;justify-content: center;align-items: center;background-color: #4A90E2;">老友助手</view>
+<scroll-view class="container" scroll-y="true" enhanced="true" show-scrollbar="false">
+
+  <!-- 功能按钮区域 -->
+  <view class="button-grid">
+    <view class="button-row">
+      <button class="function-btn" bindtap="navigateToTaxi">
+        <image class="btn-icon" src="/images/FunctionButton/taxi-icon.png"></image>
+        <text class="btn-text" style="font-size: {{fontSizes.button}};">打车</text>
+      </button>
+      <button class="function-btn" bindtap="navigateToPayment">
+        <image class="btn-icon" src="/images/FunctionButton/payment-icon.png"></image>
+        <text class="btn-text" style="font-size: {{fontSizes.button}};">缴费</text>
+      </button>
+    </view>
+    
+    <!-- 其他按钮行保持不变 -->
+    <view class="button-row">
+      <button class="function-btn" bindtap="navigateToRegistration">
+        <image class="btn-icon" src="/images/FunctionButton/registration-icon.png"></image>
+        <text class="btn-text" style="font-size: {{fontSizes.button}};">挂号</text>
+      </button>
+      <button class="function-btn" bindtap="navigateToQA">
+        <image class="btn-icon" src="/images/FunctionButton/qa-icon.png"></image>
+        <text class="btn-text" style="font-size: {{fontSizes.button}};">问答</text>
+      </button>
+    </view>
+    
+    <view class="button-row">
+      <button class="function-btn" bindtap="navigateToSOS">
+        <image class="btn-icon" src="/images/FunctionButton/sos-icon.png"></image>
+        <text class="btn-text" style="font-size: {{fontSizes.button}};">呼救</text>
+      </button>
+      <button class="function-btn" bindtap="navigateToSettings">
+        <image class="btn-icon" src="/images/FunctionButton/settings-icon.png"></image>
+        <text class="btn-text" style="font-size: {{fontSizes.button}};">设置</text>
+      </button>
+    </view>
+  </view>
+
+  <!-- 语音栏放在功能按钮下方 -->
+  <view class="voice-input-bar {{isRecording ? 'recording' : ''}}" 
+        bindtouchstart="onVoiceStart"
+        bindtouchend="onVoiceEnd">
+    <view class="voice-input-content">
+      <image class="voice-icon" src="/images/FunctionButton/voice-icon.png"></image>
+      <text class="voice-text" style="font-size: {{fontSizes.button}};">
+        {{isRecording ? '正在录音，松开识别...' : '长按说话'}}
+      </text>
+    </view>
+  </view>
+  
+  <!-- 底部占位，防止被tabbar遮挡 -->
+  <view style="height: 120rpx;"></view>
+</scroll-view>
+

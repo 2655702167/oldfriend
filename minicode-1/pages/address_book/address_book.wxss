@@ -1,0 +1,110 @@
+.container {
+  padding: 30rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 90%;
+  background-color: white;
+  border-radius: 30rpx;
+  padding: 40rpx;
+  box-shadow: 0 10rpx 30rpx rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 40rpx;
+  border-bottom: 2rpx solid #eee;
+  padding-bottom: 20rpx;
+}
+
+.title {
+  font-weight: bold;
+  color: #333;
+}
+
+.address-list {
+  width: 100%;
+  margin-bottom: 40rpx;
+}
+
+.address-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.address-item:last-child {
+  border-bottom: none;
+}
+
+.item-icon-box {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30rpx;
+  flex-shrink: 0;
+}
+
+.item-icon-box.home { background-color: #e6f7ff; }
+.item-icon-box.hospital { background-color: #fff1f0; }
+.item-icon-box.supermarket { background-color: #f6ffed; }
+
+.icon {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.item-content {
+  flex: 1;
+}
+
+.item-label {
+  display: block;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.item-input {
+  width: 100%;
+  color: #666;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.action-btn {
+  width: 80%;
+  background-color: #4A90E2;
+  color: white;
+  border-radius: 50rpx;
+  padding: 20rpx 0;
+  margin-top: 20rpx;
+  box-shadow: 0 6rpx 15rpx rgba(74, 144, 226, 0.3);
+  font-weight: bold;
+}
+
+.action-btn:active {
+  background-color: #357abd;
+  transform: translateY(2rpx);
+}
+
+.tips {
+  margin-top: 30rpx;
+  text-align: center;
+  color: #999;
+  width: 100%;
+}

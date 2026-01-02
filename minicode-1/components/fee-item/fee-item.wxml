@@ -1,0 +1,46 @@
+
+<!-- <view class="fee-item" style="border-left-color: {{borderColor}};">
+  <view class="fee-header">
+    <image class="fee-icon" src="{{icon}}" mode="widthFix"></image>
+    <view class="fee-info">
+      <text class="fee-name" style="font-size: {{fontSizes.content}};">{{name}}</text>
+      <text class="fee-tag" style="font-size: {{fontSizes.time}};">当前欠费</text>
+    </view>
+    <text class="fee-amount" style="font-size: {{fontSizes.content}};">{{amount}}</text>
+  </view>
+  <view class="pay-btn" style="background-color: {{btnBgColor}};">
+    <text style="font-size:{{fontSizes.button}};margin-left: 10rpx;">立即缴费</text>
+  </view>
+</view> -->
+
+
+<!--components/fee-item/fee-item.wxml-->
+<view class="fee-item" style="border-left-color: {{borderColor}};">
+  <!-- 图标 + 名称 + 金额区域 -->
+  <view class="fee-header">
+    <image class="fee-icon" src="{{icon}}" mode="widthFix"></image>
+    <view class="fee-info">
+      <text class="fee-name" style="font-size: {{fontSizes.content}};">{{name}}</text>
+      <!-- 未缴费时显示“当前欠费”，缴费后隐藏 -->
+      <text class="fee-tag" style="font-size: {{fontSizes.time}};" wx:if="{{!isPaid}}">当前欠费</text>
+    </view>
+    <!-- 未缴费时显示金额，缴费后隐藏 -->
+    <text class="fee-amount" style="font-size: {{fontSizes.content}};" wx:if="{{!isPaid}}">{{amount}}</text>
+  </view>
+  <!-- 立即缴费按钮（未缴费时显示） -->
+  <view class="pay-btn" style="background-color: {{btnBgColor}};" wx:if="{{!isPaid}}" bindtap="handlePay">
+    <text style="font-size:{{fontSizes.button}};margin-left: 10rpx;">立即缴费</text>
+  </view>
+  <!-- 已缴费状态提示（缴费后显示） -->
+  <view class="paid-tip" wx:if="{{isPaid}}" style="font-size:{{fontSizes.button}};">
+    已缴费
+  </view>
+</view>
+
+<!-- 缴费成功弹窗 -->
+<view class="modal-mask" wx:if="{{showSuccessModal}}" bindtap="closeModal">
+  <view class="modal-content" catchtap=""><!-- 阻止冒泡，点击弹窗内部不关闭 -->
+    <text class="modal-text">✅ 缴费成功！</text>
+    <text class="modal-subtext">账单已结清</text>
+  </view>
+</view>

@@ -1,0 +1,319 @@
+/* emergency.wxss */
+.emergency-container {
+    background-color: #f5f5f5;
+    height: calc(100vh - 200rpx);
+    padding: 20rpx 50rpx;
+    box-sizing: border-box;
+  }
+  
+  /* 顶部提示区域 */
+  .emergency-header {
+    background: #ff6b6b;
+    border-radius: 15rpx;
+    padding: 30rpx 25rpx;
+    text-align: center;
+    margin-bottom: 20rpx;
+    box-shadow: 0 2rpx 10rpx rgba(255, 255, 255, 0.05);
+  }
+  
+  .emergency-title {
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    margin-bottom: 10rpx;
+  }
+  
+  .emergency-subtitle {
+    color: rgb(255, 255, 255);
+  }
+  
+  /* 联系人卡片 */
+  .contact-card {
+    background: white;
+    border-radius: 15rpx;
+    padding: 25rpx;
+    margin-bottom: 20rpx;
+    box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  /* 左侧头像区域 */
+  .contact-left {
+    margin-right: 25rpx;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  
+  /* 头像容器样式 */
+  .avatar-container {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 3rpx solid #f0f0f0;
+  }
+  
+  .contact-avatar {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+  }
+  
+  .avatar-button {
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    line-height: 1;
+  }
+  
+  .avatar-button::after {
+    border: none;
+  }
+  
+  /* 头像编辑提示 */
+  .avatar-edit-tip {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 18rpx;
+    text-align: center;
+    padding: 5rpx 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .avatar-container:active .avatar-edit-tip {
+    opacity: 1;
+  }
+  
+  /* 右侧信息区域 */
+  .contact-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contact-info {
+    margin-bottom: 15rpx;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contact-name {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5rpx;
+  }
+  
+  .contact-phone {
+    color: #666;
+  }
+  
+  /* 编辑表单样式 */
+  .edit-form {
+    margin-bottom: 20rpx;
+  }
+  
+  .input-group {
+    margin-bottom: 20rpx;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-label {
+    font-size: 26rpx;
+    color: #333;
+    margin-bottom: 10rpx;
+    font-weight: bold;
+  }
+  
+  .name-input, .phone-input {
+    border: 1rpx solid #ddd;
+    border-radius: 8rpx;
+    padding: 20rpx;
+    font-size: 28rpx;
+    width: 50%;
+    background-color: #f9f9f9;
+  }
+  
+  .name-input:focus, .phone-input:focus {
+    border-color: #667eea;
+    background-color: white;
+  }
+  
+  /* 按钮组样式 */
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15rpx;
+  }
+  
+  /* 编辑按钮 */
+  .edit-button {
+    background: #f0f0f0;
+    border-radius: 12rpx;
+    padding: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    height: 80rpx;
+  }
+  
+  .edit-button:active {
+    background: #e0e0e0;
+  }
+  
+  .edit-icon {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 12rpx;
+  }
+  
+  .edit-text {
+    color: #333;
+    font-size: 28rpx;
+    font-weight: bold;
+  }
+  
+  /* 编辑操作按钮组 */
+  .edit-actions {
+    display: flex;
+    gap: 15rpx;
+    width: 60%;
+  }
+  
+  .save-button, .cancel-button {
+    flex: 1;
+    border-radius: 12rpx;
+    padding: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    height: 80rpx;
+  }
+  
+  .save-button {
+    background: linear-gradient(135deg, #ffffff 0%, #667eea 100%);
+  }
+  
+  .save-button:active {
+    background: linear-gradient(135deg, #ffffff 0%, #667eea 100%);
+  }
+  
+  .cancel-button {
+    background: #f0f0f0;
+  }
+  
+  .cancel-button:active {
+    background: #e0e0e0;
+  }
+  
+  .save-text, .cancel-text {
+    color: white;
+    font-size: 28rpx;
+    font-weight: bold;
+  }
+  
+  .cancel-text {
+    color: #333;
+  }
+  
+  /* 呼叫按钮 */
+  .call-button {
+    background: linear-gradient(135deg, #ffffff 0%, #667eea 100%);
+    border-radius: 12rpx;
+    padding: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-shadow: 0 4rpx 15rpx rgba(102, 126, 234, 0.3);
+    height: 80rpx;
+  }
+  
+  .call-button:active {
+    transform: translateY(2rpx);
+    box-shadow: 0 1rpx 5rpx rgba(102, 126, 234, 0.3);
+  }
+  
+  .emergency-call {
+    background: linear-gradient(135deg, #ffffff 0%, #ee5a52 100%);
+    box-shadow: 0 4rpx 15rpx rgba(255, 107, 107, 0.3);
+  }
+  
+  .emergency-call:active {
+    box-shadow: 0 1rpx 5rpx rgba(255, 107, 107, 0.3);
+  }
+  
+  .call-icon {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 12rpx;
+  }
+  
+  .call-text {
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* 分隔线 */
+  .divider {
+    height: 1rpx;
+    background: #e0e0e0;
+    margin: 30rpx 0;
+  }
+  
+  /* 位置发送卡片 */
+  .location-card {
+    background: white;
+    border-radius: 20rpx;
+    padding: 30rpx;
+    margin-bottom: 30rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.05);
+  }
+
+  .location-content {
+    display: flex;
+    align-items: center;
+  }
+
+  .location-icon {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 20rpx;
+  }
+
+  .location-text-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .location-title {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5rpx;
+  }
+
+  .location-desc {
+    color: #666;
+  }
+
+  .arrow-icon {
+    width: 30rpx;
+    height: 30rpx;
+    opacity: 0.5;
+  }

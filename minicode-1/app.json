@@ -1,0 +1,95 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/location_share/location_share",
+        "pages/Olds_chatting/Olds_chatting",
+        "pages/Voice_taxi/Voice_taxi",
+        "pages/Living_payment/Living_payment",
+        "pages/Safety_alarm/Safety_alarm",
+        "pages/Emergency_safety/Emergency_safety",
+        "pages/Setting/Setting",
+        "pages/Hospital_registration/Hospital_registration",
+        "pages/emergency/emergency",
+        "pages/help/help",
+        "pages/profile/profile",
+        "pages/logs/logs",
+        "pages/my_info/my_info",
+        "pages/address_book/address_book",
+        "pages/payment_history/payment_history",
+        "pages/registration_history/registration_history",
+        "pages/emergency_contact_edit/emergency_contact_edit"
+
+    ],
+
+    "window": {
+      "navigationBarTextStyle": "black",
+      "navigationStyle": "custom",
+      "renderer": "webview",
+      "componentFramework": "exparser",
+      "navigationBarTitleText": "老友助手",
+      "navigationBarBackgroundColor": "#667eea",
+      "backgroundColor": "#f5f5f5"
+
+    },
+    "style": "v2",
+    "renderer": "skyline",
+    "rendererOptions": {
+        "skyline": {
+            "defaultDisplayBlock": true,
+            "defaultContentBox": true,
+            "tagNameStyleIsolation": "legacy",
+            "disableABTest": true,
+            "sdkVersionBegin": "3.0.0",
+            "sdkVersionEnd": "15.255.255"
+        }
+    },
+    "tabBar": {
+        "color": "#666666",
+        "selectedColor": "#666666", 
+        "backgroundColor": "#ffffff",
+        "borderStyle": "black",
+        "list": [
+          {
+            "pagePath": "pages/index/index",
+            "iconPath": "images/tabbar/home.png",
+            "selectedIconPath": "images/tabbar/home.png" 
+          },
+          {
+            "pagePath": "pages/profile/profile",
+            "iconPath": "images/tabbar/profile.png",
+            "selectedIconPath": "images/tabbar/profile.png" 
+          },
+          {
+            "pagePath": "pages/help/help",
+            "iconPath": "images/tabbar/help.png",
+            "selectedIconPath": "images/tabbar/help.png" 
+          },
+          {
+            "pagePath": "pages/emergency/emergency",
+            "iconPath": "images/tabbar/emergency.png",
+            "selectedIconPath": "images/tabbar/emergency.png"
+          }
+        ]
+      },
+      "permission": {
+        "scope.userLocation": {
+          "desc": "你的位置信息将用于紧急呼叫时确定您的位置和查找附近医院"
+        },
+        "scope.record": {
+          "desc": "需要使用您的麦克风进行语音识别,帮助您更方便地使用语音功能"
+        },
+        "scope.camera": {
+          "desc": "需要使用摄像头进行安全录像，保障您的安全记录"
+        },
+        "scope.writePhotosAlbum": {
+          "desc": "需要保存安全录像到系统相册，方便后续查看和取证"
+        }
+      },
+    "requiredPrivateInfos": [
+        "getLocation",
+        "chooseLocation"
+    ],
+    "componentFramework": "glass-easel",
+    "sitemapLocation": "sitemap.json",
+    "lazyCodeLoading": "requiredComponents"
+}

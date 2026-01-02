@@ -1,0 +1,64 @@
+<!-- <view style="height: 60rpx;"></view>
+<view style="height: 140rpx;background-color: #FF6B6B;display: flex;justify-content: center;width: 100%;align-items: center;">
+    <text style="font-size: {{fontSizes.title}};color: white">安全警报处理中</text>
+</view> -->
+<!-- 最外层容器：全屏且设置渐变背景 -->
+<view class="page-container">
+  <!-- 可滚动内容区域 -->
+  <scroll-view class="page-scroll" scroll-y="true">
+    <!-- 顶部标题 -->
+    <view class="top-title" style="font-size: {{fontSizes.title}};">安全警报处理中</view>
+    
+    <!-- 中间内容（图标、提示文字等） -->
+    <view class="content">  
+      <view class="warning-icon">⚠️</view>
+      <view class="remind-title" style="font-size: {{fontSizes.title}};">安全提醒</view>
+      <view class="remind-content" style="font-size: {{fontSizes.content}};">"检测到异常情况"</view>
+
+      <!-- 安全录像区域：开启摄像头进行录像（提前到更靠上位置） -->
+      <view class="record-section">
+        <view class="record-header">
+          <text class="record-dot">●</text>
+          <text class="record-text" style="font-size: {{fontSizes.content}};">{{isRecording ? '安全录像中' : '点击下方按钮开始录像'}}</text>
+        </view>
+        <camera class="record-camera" mode="normal" device-position="back" flash="auto"></camera>
+        <view class="record-control" bindtap="onToggleRecord" style="font-size: {{fontSizes.button}};">
+          {{isRecording ? '停止并保存录像' : '开始安全录像'}}
+        </view>
+      </view>
+
+      <!-- 当前位置显示 -->
+      <view class="location-info" style="font-size: {{fontSizes.content}};">
+        <text class="location-label">📍 当前位置：</text>
+        <text class="location-text">{{currentLocation}}</text>
+      </view>
+
+      <!-- 处理列表 -->
+      <view class="handle-list">
+        <view class="list-item" style="font-size: {{fontSizes.content}};">📹 自动开启录音录像</view>
+        <view class="list-item" style="font-size: {{fontSizes.content}};">📍 位置已发送给联系人</view>
+        <view class="list-item" style="font-size: {{fontSizes.content}};">👮 已通知社区警务站</view>
+      </view>
+      
+      <!-- 建议操作 -->
+      <view class="suggestion">
+        <view class="suggestion-title" style="font-size: {{fontSizes.button}};">建议操作：</view>
+        <view class="suggestion-item" style="font-size: {{fontSizes.content}};">• 保持手机畅通</view>
+        <view class="suggestion-item" style="font-size: {{fontSizes.content}};">• 在原地等待协助</view>
+        <view class="suggestion-item" style="font-size: {{fontSizes.content}};">• 如需立即帮助，点击下方</view>
+      </view>
+      
+      <!-- 按钮区域 -->
+      <view class="btn-group">
+        <view class="call-110" style="font-size: {{fontSizes.button}};" bindtap="callPolice">⚠️ 立即呼叫110</view>
+        <view class="btn-row">
+          <view class="btn wrong-trigger" style="font-size: {{fontSizes.button}};" bindtap="onWrongTrigger">误触报警</view>
+          <view class="btn resolved" style="font-size: {{fontSizes.button}};" bindtap="onResolved">情况已解决</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  
+  <!-- 底部状态栏 -->
+  <view class="bottom-status" style="font-size: {{fontSizes.button}};">系统监控中...安全状态正常</view>
+</view>

@@ -1,0 +1,123 @@
+/* help.wxss */
+.help-container {
+    background-color: #f5f5f5;
+    height: calc(100vh - 200rpx);
+    padding: 30rpx;
+    box-sizing: border-box;
+  }
+  
+  /* 页面标题 */
+  .help-header {
+    text-align: center;
+    margin-bottom: 40rpx;
+  }
+  
+  .help-title {
+    font-size: 40rpx;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 15rpx;
+  }
+  
+  .help-subtitle {
+    color: #666;
+    display: block;
+  }
+  
+  /* FAQ 可折叠列表 */
+  .faq-list {
+    background: white;
+    border-radius: 20rpx;
+    overflow: hidden;
+    box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.05);
+    margin-bottom: 30rpx;
+  }
+
+  .faq-item {
+    border-bottom: 2rpx solid #f0f0f0;
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+
+  .faq-question {
+    padding: 30rpx;
+    display: flex;
+    align-items: center;
+    background: white;
+  }
+
+  .faq-question:active {
+    background: #f9f9f9;
+  }
+
+  .question-number {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8rpx 16rpx;
+    border-radius: 20rpx;
+    margin-right: 15rpx;
+    font-weight: bold;
+  }
+
+  .question-text {
+    flex: 1;
+    color: #333;
+    font-weight: 500;
+  }
+
+  .expand-icon {
+    color: #667eea;
+    font-size: 24rpx;
+    margin-left: 10rpx;
+  }
+
+  .faq-answer {
+    background: #f8f9ff;
+    padding: 0 30rpx;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .faq-answer.expanded {
+    padding: 25rpx 30rpx;
+    max-height: 1000rpx;
+  }
+
+  .answer-text {
+    color: #666;
+    line-height: 1.8;
+    white-space: pre-line;
+  }
+
+  .quick-nav-title {
+    text-align: center;
+    font-weight: bold;
+    margin: 40rpx 0 20rpx;
+    color: #333;
+  }
+
+  /* 底部提示 */
+  .footer-tips {
+    text-align: center;
+    padding: 30rpx;
+    background: white;
+    border-radius: 20rpx;
+    box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.05);
+    margin-top: 30rpx;
+  }
+  
+  .tips-text {
+    color: #666;
+    display: block;
+    margin-bottom: 20rpx;
+  }
+  
+  .contact-text {
+    color: #667eea;
+    font-weight: bold;
+    text-decoration: underline;
+  }

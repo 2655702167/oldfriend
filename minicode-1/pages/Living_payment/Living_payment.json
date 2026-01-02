@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "fee-item":"/components/fee-item/fee-item"
+    },
+    "renderer": "webview",
+    "componentFramework": "exparser"
+}

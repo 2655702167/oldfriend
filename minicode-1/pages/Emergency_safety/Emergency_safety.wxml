@@ -1,0 +1,79 @@
+<view style="height: 60rpx;"></view>
+<view style="height: 140rpx;background-color: #DB4637;display: flex;justify-content: center;width: 100%;align-items: center;">
+  <view style="width: 20%;height: 100rpx;display: flex;justify-content: center;align-items: center;">
+    <image style="width:80rpx;" src="/images/Left_arrow_safe.png" mode="widthFix" bind:tap="goToIndex"></image>
+  </view>
+  <view style="width: 80%;height: 100rpx;display: flex;justify-content: center;align-items: center;">
+    <text style="font-size: {{fontSizes.title}};color: white;margin-right: 25%;">紧急安全助手</text>
+  </view>
+</view>
+
+
+<view style="width: 100%;display: flex; flex-direction: column;justify-content: center;align-items: center;">
+  <view style="width: 90%;height: 260rpx;border-color: #FFA502;border-width: 1rpx;border-style: solid;border-radius: 15rpx; box-shadow: -10rpx 0rpx 3rpx #FFA502;margin-top: 40rpx;">
+    <view style="display: flex;align-items: center;height: 120rpx;margin-top: 20rpx;">
+      <image style="width: 100rpx;padding-left: 4%;" src="/images/Home.png" mode="widthFix"></image>
+      <view style="margin-left: 20rpx;display: flex;flex-direction: column;justify-content: space-between;">
+        <text style="font-size: {{fontSizes.title}};">医疗求助</text>
+        <text style="font-size: {{fontSizes.content}};">身体不适，摔倒等</text>
+      </view>
+    </view>
+    <view style="width: 92%;margin-left: 4%;height: 80rpx;margin-top: 20rpx;background-color: #FFA502;border-radius: 15rpx;display: flex;justify-content: center;align-items: center;">
+      <text style="font-size: {{fontSizes.button}};color: white;" bindtap="onMedicalHelp">一键求助</text>
+    </view>
+  </view>
+
+  <view style="width: 90%;height: 260rpx;border-color: #FF6B6B;border-width: 1rpx;border-style: solid;border-radius: 15rpx; box-shadow: -10rpx 0rpx 3rpx #FF6B6B;margin-top: 40rpx;">
+    <view style="display: flex;align-items: center;height: 120rpx;margin-top: 20rpx;">
+      <image style="width: 100rpx;padding-left: 4%;" src="/images/Home.png" mode="widthFix"></image>
+      <view style="margin-left: 20rpx;display: flex;flex-direction: column;justify-content: space-between;">
+        <text style="font-size: {{fontSizes.title}};">安全警报</text>
+        <text style="font-size: {{fontSizes.content}};">遇到可疑人员、紧急情况</text>
+      </view>
+    </view>
+    <view style="width: 92%;margin-left: 4%;height: 80rpx;margin-top: 20rpx;background-color: #FF6B6B;border-radius: 15rpx;display: flex;justify-content: center;align-items: center;">
+      <text style="font-size: {{fontSizes.button}};color: white;" bindtap="goToNextPage">一键报警</text>
+    </view>
+  </view>
+
+  <view style="width: 90%;height: 260rpx;border-color: #4A90E2;border-width: 1rpx;border-style: solid;border-radius: 15rpx; box-shadow: -10rpx 0rpx 3rpx #4A90E2;margin-top: 40rpx;">
+    <view style="display: flex;align-items: center;height: 120rpx;margin-top: 20rpx;">
+      <image style="width: 100rpx;padding-left: 4%;" src="/images/Home.png" mode="widthFix"></image>
+      <view style="margin-left: 20rpx;display: flex;flex-direction: column;justify-content: space-between;">
+        <text style="font-size: {{fontSizes.title}};">居家协助</text>
+        <text style="font-size: {{fontSizes.content}};">门锁问题、水电维修等</text>
+        <text style="font-size: {{fontSizes.content}};color: #666;">物业电话：{{propertyPhone}}</text>
+      </view>
+    </view>
+    <view style="width: 92%;margin-left: 4%;height: 80rpx;margin-top: 20rpx;background-color: #4A90E2;border-radius: 15rpx;display: flex;justify-content: center;align-items: center;">
+      <text style="font-size: {{fontSizes.button}};color: white;" bindtap="onPropertyContact">联系物业</text>
+    </view>
+  </view>
+
+  <!-- 自定义紧急联系人 -->
+  <block wx:for="{{emergencyContacts}}" wx:key="index">
+    <view style="width: 90%;height: 260rpx;border-color: #9B59B6;border-width: 1rpx;border-style: solid;border-radius: 15rpx; box-shadow: -10rpx 0rpx 3rpx #9B59B6;margin-top: 40rpx;">
+      <view style="display: flex;align-items: center;height: 120rpx;margin-top: 20rpx;">
+        <image style="width: 100rpx;padding-left: 4%;" src="/images/user_avatar.png" mode="widthFix"></image>
+        <view style="margin-left: 20rpx;display: flex;flex-direction: column;justify-content: space-between;">
+          <text style="font-size: {{fontSizes.title}};">{{item.name}}</text>
+          <text style="font-size: {{fontSizes.content}};">紧急联系人</text>
+          <text style="font-size: {{fontSizes.content}};color: #666;">{{item.phone}}</text>
+        </view>
+      </view>
+      <view style="width: 92%;margin-left: 4%;height: 80rpx;margin-top: 20rpx;background-color: #9B59B6;border-radius: 15rpx;display: flex;justify-content: center;align-items: center;">
+        <text style="font-size: {{fontSizes.button}};color: white;" bindtap="callCustomContact" data-phone="{{item.phone}}" data-name="{{item.name}}">一键呼叫</text>
+      </view>
+    </view>
+  </block>
+
+  <view style="width: 90%;height: 160rpx;border-color: #52C41A;border-width: 1rpx;border-style: solid;border-radius: 15rpx;box-shadow: -10rpx 0rpx 3rpx #52C41A;margin-top: 40rpx;">
+    <view style="display: flex; align-items: center;height: 40%;margin-top: 10rpx;padding-left: 4%;">
+      <image style="width: 50rpx;" src="/images/Location.png" mode="widthFix"></image>
+      <text style="font-size: {{fontSizes.content}};margin-left: 20rpx;">当前位置</text>
+    </view>
+    <view style="margin-top: 20rpx;padding-left: 4%;">
+      <text style="font-size: {{fontSizes.button}};">{{currentLocation}}</text>
+    </view>
+  </view>
+</view>

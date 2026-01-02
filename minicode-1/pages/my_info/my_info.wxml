@@ -1,0 +1,61 @@
+<wxs module="utils">
+  module.exports = {
+    maskName: function(name) {
+      if (!name) return '未填写';
+      if (name.length <= 1) return name;
+      return name[0] + '*';
+    },
+    maskPhone: function(phone) {
+      if (!phone) return '未填写';
+      if (phone.length < 7) return phone;
+      return phone.substring(0, 3) + '****' + phone.substring(7);
+    },
+    maskAddress: function(address) {
+      if (!address) return '未填写';
+      if (address.length <= 6) return address;
+      return address.substring(0, 6) + '******';
+    }
+  }
+</wxs>
+
+<view class="container">
+  <view class="info-card">
+    <view class="card-header">
+      <text class="title" style="font-size: {{fontSizes.title}};">基本信息</text>
+    </view>
+
+    <view class="info-list">
+      <!-- 姓名 -->
+      <view class="info-item">
+        <text class="label" style="font-size: {{fontSizes.content}};">姓名</text>
+        <view class="value-box">
+          <input wx:if="{{isEditing}}" class="input" value="{{userInfo.name}}" bindinput="onNameInput" placeholder="请输入姓名" />
+          <text wx:else class="value" style="font-size: {{fontSizes.content}};">{{utils.maskName(userInfo.name)}}</text>
+        </view>
+      </view>
+
+      <!-- 电话 -->
+      <view class="info-item">
+        <text class="label" style="font-size: {{fontSizes.content}};">电话</text>
+        <view class="value-box">
+          <input wx:if="{{isEditing}}" class="input" value="{{userInfo.phone}}" bindinput="onPhoneInput" placeholder="请输入电话" type="number" />
+          <text wx:else class="value" style="font-size: {{fontSizes.content}};">{{utils.maskPhone(userInfo.phone)}}</text>
+        </view>
+      </view>
+
+      <!-- 地址 -->
+      <view class="info-item">
+        <text class="label" style="font-size: {{fontSizes.content}};">地址</text>
+        <view class="value-box">
+          <input wx:if="{{isEditing}}" class="input" value="{{userInfo.address}}" bindinput="onAddressInput" placeholder="请输入地址" />
+          <text wx:else class="value" style="font-size: {{fontSizes.content}};">{{utils.maskAddress(userInfo.address)}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部按钮 -->
+    <button class="action-btn" bindtap="{{isEditing ? 'saveInfo' : 'startEditing'}}" style="font-size: {{fontSizes.button}};">
+      {{isEditing ? '保存' : '编辑'}}
+    </button>
+  </view>
+</view>

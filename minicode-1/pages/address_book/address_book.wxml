@@ -1,0 +1,74 @@
+<view class="container">
+  <view class="card">
+    <view class="header">
+      <text class="title" style="font-size: {{fontSizes.title}};">常用地址管理</text>
+    </view>
+
+    <view class="address-list">
+      <!-- 家 -->
+      <view class="address-item">
+        <view class="item-icon-box home">
+          <image src="/images/Home.png" mode="aspectFit" class="icon"></image>
+        </view>
+        <view class="item-content">
+          <text class="item-label" style="font-size: {{fontSizes.content}};">家</text>
+          <input 
+            class="item-input" 
+            value="{{addresses.home}}" 
+            placeholder="请输入家庭地址" 
+            disabled="{{!isEditing}}"
+            bindinput="onInput"
+            data-type="home"
+            style="font-size: {{fontSizes.content}};"
+          />
+        </view>
+      </view>
+
+      <!-- 医院 -->
+      <view class="address-item">
+        <view class="item-icon-box hospital">
+          <image src="/images/Hospital.png" mode="aspectFit" class="icon"></image>
+        </view>
+        <view class="item-content">
+          <text class="item-label" style="font-size: {{fontSizes.content}};">医院</text>
+          <input 
+            class="item-input" 
+            value="{{addresses.hospital}}" 
+            placeholder="请输入常去医院" 
+            disabled="{{!isEditing}}"
+            bindinput="onInput"
+            data-type="hospital"
+            style="font-size: {{fontSizes.content}};"
+          />
+        </view>
+      </view>
+
+      <!-- 超市 -->
+      <view class="address-item">
+        <view class="item-icon-box supermarket">
+          <image src="/images/Supermarket.png" mode="aspectFit" class="icon"></image>
+        </view>
+        <view class="item-content">
+          <text class="item-label" style="font-size: {{fontSizes.content}};">超市</text>
+          <input 
+            class="item-input" 
+            value="{{addresses.supermarket}}" 
+            placeholder="请输入常去超市" 
+            disabled="{{!isEditing}}"
+            bindinput="onInput"
+            data-type="supermarket"
+            style="font-size: {{fontSizes.content}};"
+          />
+        </view>
+      </view>
+    </view>
+    
+    <button class="action-btn" bindtap="{{isEditing ? 'saveAddresses' : 'startEditing'}}" style="font-size: {{fontSizes.button}};">
+      {{isEditing ? '保存' : '编辑'}}
+    </button>
+
+    <view class="tips" style="font-size: {{fontSizes.time}};">
+      提示：设置后，在语音打车页面可直接点击图标快速输入目的地。
+    </view>
+  </view>
+</view>

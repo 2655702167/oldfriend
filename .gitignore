@@ -1,0 +1,52 @@
+# Java 编译产物
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# IDE 相关
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+.DS_Store
+
+# Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+
+# 编译输出
+compile_output.txt
+
+# 敏感配置文件（建议本地保留，不提交到远程）
+# application-prod.yml
+# application-local.yml
+
+# Node modules
+node_modules/
+
+# 微信小程序
+minicode-1/.git/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+.env
+
+# 临时文件
+*.tmp
+*.bak
+*.swp
+*~
+.cache/

@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+      "department-tag": "/components/department-tag/department-tag"
+    }
+ }

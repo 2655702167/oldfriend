@@ -1,0 +1,143 @@
+/* pages/Voice_taxi/Voice_taxi.wxss */
+.page-container{
+    height: 60rpx;
+}
+.nav-bar {
+    padding-top: 400rpx;
+    display: flex;
+    align-items: center;
+    height: 140rpx;
+    background-color: #4A90E2;
+    padding: 0 30rpx;
+  }
+  .Left_arrow{
+      width:80rpx;
+  }
+  .nav-title {
+    color: white;
+    flex: 1;
+    text-align: center;
+    padding-right: 40rpx;
+  }
+  .voice-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20%;
+  }
+
+  .Microphone{
+      width: 40%;
+      transition: all 0.3s ease;
+      cursor: pointer;
+  }
+
+  .Microphone.recording {
+    animation: pulse 1s infinite;
+    transform: scale(1.1);
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+  .wenlu{
+      width: 100%;
+      padding-top: 20rpx;
+      text-align: center;
+  }
+  .example{
+      padding-top: 20rpx;
+      text-align: center;
+  }
+  .option{
+      padding-top: 20rpx;
+      text-align: center;
+  }
+  .hengxiang{
+
+      display: flex; /* 核心：开启flex布局 */
+      /* flex-direction: row; 这是默认值，可省略 */
+      justify-content: space-around; /* 子组件之间平均分布（可选） */
+      padding-left: 100rpx;
+      padding-right: 100rpx;
+      padding-top: 30rpx;
+  }
+
+  .input-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30rpx;
+    margin-bottom: 20rpx;
+  }
+  
+  /* 输入框样式（宽度90%） */
+  .destination-input {
+    width: 90%;
+    height: 100rpx;
+    border: 1rpx solid #ddd;
+    border-radius: 10rpx;
+    padding: 0 20rpx;
+    box-sizing: border-box; /* 确保padding不超出宽度 */
+  }
+
+  .tubiao{
+      display:flex;
+      flex-direction:column;
+      padding-top: 30rpx;
+      text-align: center;
+      border: 3rpx solid #ccc;
+      height:180rpx;
+      width:150rpx;
+      align-items: center;
+      border-radius: 20rpx;
+      box-shadow: 4rpx 4rpx 8rpx rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+  }
+
+  .tubiao:active {
+    transform: scale(0.95);
+    background-color: #f0f0f0;
+  }
+
+  .where{
+      height:50%;
+  }
+  .tubiaozi{
+      padding-top: 10rpx;
+  }
+  .location{
+      display:flex;
+      align-items: center;
+      width:50%;
+      height:120rpx;
+      margin-left: 25%;
+      margin-right: 25%;
+      margin-top: 40rpx;
+      border-radius: 20rpx;
+      box-shadow: 4rpx 4rpx 8rpx rgba(0,0,0,0.2);
+      border: 3rpx solid #ccc;
+  }
+  .tubiao2{
+      height:50rpx;
+      margin-left: 10rpx;
+  }
+  .location1{
+      display:flex;
+      flex-direction: column;
+      margin-left: 20rpx;
+  }
+  .fanhui{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 80rpx;
+      background-color: #4A90E2;
+      width:90%;
+      height: 100rpx;
+      border-radius: 18rpx;
+  }

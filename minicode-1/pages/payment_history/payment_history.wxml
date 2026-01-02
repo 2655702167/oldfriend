@@ -1,0 +1,6 @@
+<view class="container">
+  <view class="empty-tip">
+    <image src="/images/profile/default-avatar.png" mode="aspectFit" style="width: 200rpx; height: 200rpx; opacity: 0.5;"></image>
+    <text style="margin-top: 20rpx; color: #999;">暂无缴费记录</text>
+  </view>
+</view>

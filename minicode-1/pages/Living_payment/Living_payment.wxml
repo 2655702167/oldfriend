@@ -1,0 +1,54 @@
+<!--pages/Living_payment/Living_payment.wxml-->
+<view class="page-container"></view>
+<view class="nav-bar">
+    <image style="width:80rpx;margin-left: 5%;" src="/images/left_arrow_green.png" mode="widthFix" bind:tap="goToIndex"></image>
+    <text style="color: white;font-size: {{fontSizes.title}};margin-left: 30%;">生活缴费</text>
+</view>
+
+<scroll-view class="payment-scroll" scroll-y="true" enhanced="true" show-scrollbar="false">
+<!-- 语音输入按钮 - 暂时隐藏，避免后端服务不可用时出错 -->
+<!-- <view class="voice-bar" 
+      bindtouchstart="onVoiceStart"
+      bindtouchend="onVoiceEnd"
+      class="{{isRecording ? 'recording' : ''}}">
+  <image class="voice-icon" src="/images/Microphone_red.png"></image>
+  <text style="font-size: {{fontSizes.button}}; color: white;">
+    {{isRecording ? '正在录音，松开识别...' : '长按语音说"交电费"'}}
+  </text>
+</view> -->
+
+<!-- 缴费项目列表（始终显示，不再用loading控制） -->
+<view class="fee-list">
+  <view wx:for="{{paymentItems}}" wx:key="itemId" 
+        class="fee-card"
+        bindtap="onPaymentItemClick"
+        data-item="{{item}}">
+    <view class="fee-header">
+      <image class="fee-icon" src="{{item.itemType === '水费' ? '/images/Water_payment.png' : item.itemType === '电费' ? '/images/Electric_payment.png' : item.itemType === '网费' ? '/images/Net_payment.png' : '/images/Phone_payment.png'}}"></image>
+      <text class="fee-name" style="font-size: {{fontSizes.title}};">{{item.itemType}}</text>
+    </view>
+    <view class="fee-info">
+      <text style="font-size: {{fontSizes.content}};">账户：{{item.account}}</text>
+      <text class="fee-amount" style="font-size: {{fontSizes.title}}; color: #FF6B6B;">¥{{item.amount}}</text>
+    </view>
+    <view class="fee-btn" style="background-color: {{item.itemType === '水费' ? '#4A90E2' : item.itemType === '电费' ? '#FFA726' : item.itemType === '网费' ? '#9C27B0' : '#4CAF50'}};">
+      <text style="font-size: {{fontSizes.button}}; color: white;">立即缴费</text>
+    </view>
+  </view>
+  
+  <!-- 无待缴费项目 -->
+  <view wx:if="{{paymentItems.length === 0}}" style="text-align: center; padding: 100rpx 0;">
+    <text style="font-size: {{fontSizes.content}}; color: #999;">暂无待缴费项目</text>
+  </view>
+</view>
+<!-- 语音提示暂时隐藏 -->
+<!-- <view style="width: 86%;background-color: #4A90E2;height: 120rpx;margin-left: 8%;border-radius: 15rpx;margin-top: 20rpx;text-align: center;display: flex;flex-direction: column;justify-content: space-between;">
+  <view style="color: white;font-size: {{fontSizes.content}};margin-top: 15rpx;">语音支付提示
+  </view>
+  <view style="color: white;font-size: {{fontSizes.content}};margin-bottom: 15rpx;">可以说"确认缴费"来完成支付
+  </view>
+</view> -->
+
+<!-- 底部占位 -->
+<view style="height: 100rpx;"></view>
+</scroll-view>

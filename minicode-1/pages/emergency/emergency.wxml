@@ -1,0 +1,116 @@
+<!-- emergency.wxml -->
+<view style="height: 60rpx;"></view>
+<view style="height: 140rpx; font-size: {{fontSizes.title}};display: flex;justify-content: center;align-items: center;background-color: #4A90E2;">紧急呼救</view>
+<scroll-view class="emergency-container" scroll-y="true" enhanced="true" show-scrollbar="false">
+  <!-- 顶部提示区域 -->
+  <view class="emergency-header">
+    <view class="emergency-title" style="font-size: {{fontSizes.button}};">遇到紧急情况？</view>
+    <view class="emergency-subtitle" style="font-size: {{fontSizes.content}};">点击下方按钮快速呼救</view>
+  </view>
+
+  <!-- 儿子联系人卡片 - 可编辑版本 -->
+  <view class="contact-card">
+    <view class="contact-left">
+        <view class="avatar-container">
+          <button class="avatar-button" bindtap="chooseAvatar">
+            <image src="{{emergencyContact.avatar || '/images/emergency/contact-avatar.png'}}      "class="contact-avatar"mode="aspectFill">
+            </image>
+          </button>
+        </view>
+    </view>
+    <view class="contact-right">
+      <!-- 查看模式 -->
+      <view class="contact-info" wx:if="{{!isEditing}}">
+        <text class="contact-name" style="font-size: {{fontSizes.button}};">{{emergencyContact.name || '未设置联系人'}}</text>
+        <text class="contact-phone" style="font-size: {{fontSizes.content}};">{{emergencyContact.phone || '请设置电话号码'}}</text>
+      </view>
+      
+      <!-- 编辑模式 -->
+      <view class="edit-form" wx:else>
+        <view class="input-group">
+          <text class="input-label">姓名</text>
+          <input class="name-input" value="{{emergencyContact.name}}" placeholder="请输入联系人姓名" bindinput="onNameInput" />
+        </view>
+        <view class="input-group">
+          <text class="input-label">电话</text>
+          <input class="phone-input" value="{{emergencyContact.phone}}" placeholder="请输入电话号码" type="number" bindinput="onPhoneInput" />
+        </view>
+      </view>
+      
+      <!-- 按钮区域 -->
+      <view class="button-group">
+        <button class="edit-button" wx:if="{{!isEditing}}" bindtap="startEditing">
+          <image src="/images/emergency/edit-icon.png" class="edit-icon"></image>
+          <text class="edit-text">{{emergencyContact.name ? '编辑' : '设置'}}联系人</text>
+        </button>
+        
+        <view class="edit-actions" wx:else>
+          <button class="save-button" bindtap="saveContact">
+            <text class="save-text">保存</text>
+          </button>
+          <button class="cancel-button" bindtap="cancelEditing">
+            <text class="cancel-text">取消</text>
+          </button>
+        </view>
+        
+        <button class="call-button" wx:if="{{!isEditing && emergencyContact.phone}}" bindtap="callSon">
+          <image src="/images/emergency/call-icon.png" class="call-icon"></image>
+          <text class="call-text">呼叫{{emergencyContact.name || '儿子'}}</text>
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 120急救中心卡片 -->
+  <view class="contact-card">
+    <view class="contact-left">
+      <view class="avatar-container">
+        <image src="/images/emergency/120-avatar.png" class="contact-avatar"></image>
+      </view>
+    </view>
+    <view class="contact-right">
+      <view class="contact-info">
+        <text class="contact-name" style="font-size: {{fontSizes.button}};">120急救中心</text>
+        <text class="contact-phone" style="font-size: {{fontSizes.content}};">120</text>
+      </view>
+      <button class="call-button emergency-call" bindtap="call120">
+        <image src="/images/emergency/emergency-call-icon.png" class="call-icon"></image>
+        <text class="call-text" style="font-size: {{fontSizes.button}};">呼叫120</text>
+      </button>
+    </view>
+  </view>
+
+  <!-- 110报警中心卡片 -->
+  <view class="contact-card">
+    <view class="contact-left">
+      <view class="avatar-container">
+        <image src="/images/emergency/110-avatar.png" class="contact-avatar"></image>
+      </view>
+    </view>
+    <view class="contact-right">
+      <view class="contact-info">
+        <text class="contact-name" style="font-size: {{fontSizes.button}};">110报警中心</text>
+        <text class="contact-phone" style="font-size: {{fontSizes.content}};">110</text>
+      </view>
+      <button class="call-button emergency-call" bindtap="call110">
+        <image src="/images/emergency/emergency-call-icon.png" class="call-icon"></image>
+        <text class="call-text" style="font-size: {{fontSizes.button}};">呼叫110</text>
+      </button>
+    </view>
+  </view>
+
+  <!-- 发送位置按钮 -->
+  <view class="location-card" bindtap="sendLocationToAll">
+    <view class="location-content">
+      <image src="/images/emergency/location-icon.png" class="location-icon" mode="widthFix"></image>
+      <view class="location-text-group">
+        <text class="location-title" style="font-size: {{fontSizes.button}};">发送我的位置</text>
+        <text class="location-desc" style="font-size: {{fontSizes.content}};">发送给紧急联系人</text>
+      </view>
+    </view>
+    <image src="/images/help/arrow-right.png" class="arrow-icon"></image>
+  </view>
+
+  <!-- 底部占位 -->
+  <view style="height: 100rpx;"></view>
+</scroll-view>

@@ -1,0 +1,29 @@
+<view class="container">
+  <map 
+    id="myMap" 
+    style="width: 100%; height: 100vh;" 
+    latitude="{{latitude}}" 
+    longitude="{{longitude}}" 
+    markers="{{markers}}"
+    scale="16"
+    show-location
+  >
+  </map>
+
+  <!-- 右上角转发按钮 (移出 map 组件，使用标准 view) -->
+  <view class="share-btn-container">
+      <!-- 由于小程序违规导致分享被封，改为点击复制位置信息 -->
+      <button class="share-btn" bindtap="handleShare">
+        <view class="btn-content">
+          <image class="share-icon" src="/images/emergency/location-icon.png"></image>
+          <text class="share-text">复制位置信息</text>
+        </view>
+      </button>
+  </view>
+  
+  <!-- 底部地址信息卡片 (移出 map 组件，使用标准 view) -->
+  <view class="address-card">
+    <view class="address-title">我的当前位置</view>
+    <view class="address-detail">{{address}}</view>
+  </view>
+</view>

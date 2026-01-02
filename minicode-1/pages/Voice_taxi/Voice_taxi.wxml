@@ -1,0 +1,77 @@
+<!--pages/Voice_taxi/Voice_taxi.wxml-->
+<view class="page-container"></view>
+<view class="nav-bar">
+  <image class="Left_arrow" src="/images/Left_arrow.png" mode="widthFix" bind:tap="goToIndex"></image>
+  <view class="nav-title" style="font-size: {{fontSizes.title}};">语音打车</view>
+</view>
+
+<!-- 语音按钮 - 支持长按录音 -->
+<view class="voice-button-container">
+  <image 
+    class="Microphone {{isRecording ? 'recording' : ''}}" 
+    src="/images/Microphone.png" 
+    mode="widthFix"
+    bindtouchstart="onVoiceStart"
+    bindtouchend="onVoiceEnd"
+  ></image>
+  <view class="wenlu" style="font-size: {{fontSizes.time}};">
+    {{isRecording ? '正在录音，松开识别...' : '请说出你想要去的地方'}}
+  </view>
+  <view class="example" style="font-size: {{fontSizes.time}};">例如："我要去第一人民市医院"</view>
+</view>
+
+<!-- 手动输入目的地 -->
+<view class="input-container">
+  <input 
+    class="destination-input"
+    style="font-size: {{fontSizes.content}};"
+    placeholder="手动输入目的地（如：第一人民医院）"
+    placeholder-style="color: #ccc;"
+    value="{{destinationInput}}"
+    bindinput="onInputChange"
+    bindconfirm="onInputConfirm"
+    confirm-type="done"
+  />
+</view>
+
+<!-- 打车按钮（调用高德定位到目的地） -->
+<view style="width: 100%; display:flex; justify-content: center; margin-top: 20rpx;">
+  <button type="primary" bindtap="openAmapTaxi" style="width: 80%; font-size: {{fontSizes.title}};">
+    打车
+  </button>
+</view>
+
+<view class="option" style="font-size: {{fontSizes.time}};">快捷目的地</view>
+
+<!-- 快捷目的地图标 -->
+<view class="hengxiang">
+  <view class="tubiao" bindtap="onQuickDestination" data-type="home">
+    <image class="where" src="/images/Home.png" mode="heightFix"></image>
+    <text class="tubiaozi" style="font-size: {{fontSizes.content}};">家</text>
+  </view>
+  <view class="tubiao" bindtap="onQuickDestination" data-type="hospital">
+    <image class="where" src="/images/Hospital.png" mode="heightFix"></image>
+    <text class="tubiaozi" style="font-size: {{fontSizes.content}};">医院</text>
+  </view>
+  <view class="tubiao" bindtap="onQuickDestination" data-type="supermarket">
+    <image class="where" src="/images/Supermarket.png" mode="heightFix"></image>
+    <text class="tubiaozi" style="font-size: {{fontSizes.content}};">超市</text>
+  </view>
+</view>
+
+<!-- 当前位置 -->
+<view class="location">
+  <image class="tubiao2" src="/images/Location.png" mode="heightFix"></image>
+  <view class="location1">
+    <text style="font-size: {{fontSizes.time}}">当前位置</text>
+    <text style="font-size: {{fontSizes.time}}">{{currentLocation}}</text>
+  </view>
+</view>
+
+<!-- 返回首页按钮 -->
+<view style="width: 100%; display:flex; justify-content: center;text-align: center;">
+  <view class="fanhui" bindtap="goToIndex">
+    <image style="height: 40rpx;" src="/images/Backhome.png" mode="heightFix"></image>
+    <text style="font-size:{{fontSizes.button}}; color:white; margin-left:10rpx;">返回首页</text>
+  </view>
+</view>

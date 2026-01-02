@@ -1,0 +1,72 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: elderly-assistant-backend
+  
+  # 数据源配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/elderly_assistant?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: YOUR_MYSQL_PASSWORD_HERE
+    
+  # Redis配置（用于会话管理）
+  redis:
+    host: localhost
+    port: 6379
+    password: 
+    database: 0
+    timeout: 3000
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+
+# MyBatis Plus配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: assign_id
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  mapper-locations: classpath*:/mapper/**/*.xml
+
+# 日志配置
+logging:
+  level:
+    com.elderly: debug
+    com.baomidou.mybatisplus: debug
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{50} - %msg%n'
+
+# 第三方API配置
+api:
+  # 百度语音识别
+  baidu:
+    voice:
+      app-id: YOUR_BAIDU_APP_ID_HERE
+      api-key: YOUR_BAIDU_API_KEY_HERE
+      secret-key: YOUR_BAIDU_SECRET_KEY_HERE
+  
+  # 文心一言
+  wenxin:
+    app-id: app-30lWAw7e
+    
+  # 微信小程序配置
+  wechat:
+    app-id: YOUR_WECHAT_APP_ID_HERE
+    app-secret: YOUR_WECHAT_APP_SECRET_HERE # 必须填入才能获取真实手机号
+    pay:
+      mch-id: 商户号
+      api-key: API密钥
+      notify-url: ${server.servlet.context-path}/payment/notify

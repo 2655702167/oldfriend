@@ -1,0 +1,108 @@
+/* pages/Hospital_registration/Hospital_registration.wxss */
+.nav-bar{
+    height:140rpx;
+    /* width: 100%; */
+    display: flex;
+    background-color:#FF6B6B ;
+    align-items: center;
+}
+
+/* 滚动容器 */
+.registration-scroll {
+    height: calc(100vh - 200rpx);
+    background-color: #f5f5f5;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    padding: 0 20rpx;
+    margin: 20rpx;
+    border: 1rpx solid #eee;
+    border-radius: 20rpx; 
+    height: 100rpx;
+    background-color: #F5F5F5;
+  }
+  
+  /* 输入框：占满剩余空间，去掉默认样式 */
+  .search-input {
+    width: 80%;
+  }
+  
+  .voice-icon {
+    width: 32rpx;
+    height: 32rpx;
+  }
+.department-container {
+    margin-top: 30rpx; 
+    padding: 0 10rpx; 
+  }
+  
+
+  .department-title {
+    font-size: 32rpx;
+    font-weight: 500;
+    margin-bottom: 20rpx; 
+    color: #333; 
+  }
+  
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20rpx;
+    pointer-events: auto;
+  }
+  
+  .department-tag {
+    width: calc(33.33% - 14rpx);
+    box-sizing: border-box;
+    pointer-events: auto;
+  }
+
+  .hospital-card {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 90%;
+    min-height: 200rpx;
+    background: #fff;
+    margin-left: 5%;
+    padding: 25rpx 20rpx;
+    border: 2rpx solid #f0f0f0;
+    border-radius: 15rpx;
+    box-sizing: border-box;
+    border-left: 10rpx solid #FF6B6B; /* 左侧红色边缘，加粗 */
+    margin-top: 25rpx;
+    box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08); /* 添加轻微阴影 */
+  }
+
+/* 预约按钮 */
+.booking-btn {
+    width: 100%;
+    margin-top: 15rpx;
+    height: 70rpx;
+    border-radius: 12rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.booking-btn-active {
+    background-color: #FFF0F0;
+    border: 2rpx solid #FF6B6B;
+}
+
+.booking-btn-disabled {
+    background-color: #F5F5F5;
+    border: 2rpx solid #DDD;
+}
+
+.booking-btn-reserved {
+    background-color: #F6FFED;
+    border: 2rpx solid #52C41A;
+    opacity: 0.8;
+}
+
+
+

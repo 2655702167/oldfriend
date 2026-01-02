@@ -1,0 +1,16 @@
+.tag {
+    padding: 16rpx 32rpx;
+    margin: 10rpx;
+    border: 1rpx solid #eee;
+    border-radius: 8rpx;
+    background: #fff;
+    /* 确保显示，避免被隐藏 */
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+  }
+  .tag-active {
+    background: #f43f3b;
+    color: #fff;
+    border-color: #f43f3b;
+  }

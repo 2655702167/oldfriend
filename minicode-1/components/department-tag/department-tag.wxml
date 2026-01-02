@@ -1,0 +1,7 @@
+<view 
+  class="tag {{isActive ? 'tag-active' : ''}}"
+  bindtap="onTagTap" 
+  style="font-size: {{fontSizes.content}};"
+>
+  {{name}}
+</view>

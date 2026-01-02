@@ -1,0 +1,102 @@
+/* index.wxss */
+.container {
+    padding: 20rpx;
+    background-color: #f5f5f5;
+    height: calc(100vh - 200rpx);
+    box-sizing: border-box;
+  }
+  
+/* 长条语音输入按键样式 */
+.voice-input-bar {
+    background: linear-gradient(135deg, #667eea 0%, #ac82d6 100%);
+    border-radius: 50rpx;
+    padding: 30rpx 60rpx;
+    margin-top: 30rpx;
+    margin-bottom: 20rpx;
+    box-shadow: 0 6rpx 20rpx rgba(102, 126, 234, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .voice-input-bar:active {
+    transform: translateY(4rpx);
+    box-shadow: 0 2rpx 10rpx rgba(102, 126, 234, 0.3);
+  }
+  
+  .voice-input-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .voice-icon {
+    width: 50rpx;
+    height: 50rpx;
+    margin-right: 20rpx;
+  }
+  
+  .voice-text {
+    color: white;
+    font-weight: bold;
+  }  
+  
+
+  .button-grid {
+    background: white;
+    border-radius: 20rpx;
+    padding: 20rpx 20rpx;
+    box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+  }
+  
+  .button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40rpx;
+  }
+  
+
+  .button-row:last-child {
+    margin-bottom: 0;
+  }
+  
+
+  .function-btn {
+    width: 330rpx;
+    height: 280rpx;
+    background: #ffffff; 
+    border-radius: 20rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2rpx solid hsl(0, 0%, 96%);
+    box-shadow: 0 6rpx 20rpx rgba(0, 0, 0, 0.1);
+  }
+  
+
+  .function-btn:active {
+    transform: translateY(4rpx);
+    box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1); 
+  }
+  
+
+.btn-icon {
+    width: 100rpx;
+    height: 100rpx;
+    margin-bottom: 20rpx;
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 40rpx;
+  }
+  
+
+  .btn-text {
+    color: #333333; 
+
+    font-weight: bold;
+  }
+

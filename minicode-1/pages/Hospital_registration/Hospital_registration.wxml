@@ -1,0 +1,122 @@
+<!--pages/Hospital_registration/Hospital_registration.wxml-->
+<view style="height:60rpx"></view>
+<view class="nav-bar">
+  <view style="width:20%;">
+    <image style="width:80rpx;padding-left: 20rpx;" src="/images/Left_arrow_red.png" mode="widthFix" bind:tap="goToIndex"></image>
+  </view>
+  <view style="width: 80%;text-align:center;">
+    <text style="font-size: {{fontSizes.title}};margin-right: 24%;color: white;">医院挂号</text>
+  </view>
+</view>
+<scroll-view class="registration-scroll" scroll-y="true" enhanced="true" show-scrollbar="false">
+<view class="search-bar">
+  <input 
+    class="search-input" 
+    placeholder="语音输入症状或科室..." 
+    placeholder-style="color: #999;"
+    style="font-size: {{fontSizes.content}};"
+    value="{{searchText}}"
+    bindinput="onSearchInput"
+    bindconfirm="onSearchConfirm"
+    confirm-type="search"
+  />
+    <image 
+      style="width:70rpx;margin-left: 60rpx;" 
+      src="/images/Microphone_red.png" 
+      mode="widthFix"
+      class="{{isRecording ? 'recording' : ''}}"
+      bindtouchstart="onVoiceStart"
+      bindtouchend="onVoiceEnd"
+    />
+</view>
+<text style="font-size: {{fontSizes.content}};margin-top: 40rpx;margin-left: 30rpx;">选择科室</text>
+<!-- 调试信息 -->
+<view style="margin: 20rpx; padding: 10rpx; background: #f0f0f0; font-size: 24rpx; display: none;">
+  <text>调试: locationSuccess={{locationSuccess}}, 医院数={{nearbyHospitals.length}}</text>
+</view>
+<view class="department-container">
+    <view class="tag-list">
+      <department-tag 
+        name="内科" 
+        isActive="{{activeTag === '内科'}}"
+        bind:tagtap="onTagChange"
+      />
+      <department-tag 
+        name="外科" 
+        isActive="{{activeTag === '外科'}}"
+        bind:tagtap="onTagChange"
+      />
+      <department-tag 
+        name="眼科" 
+        isActive="{{activeTag === '眼科'}}"
+        bind:tagtap="onTagChange"
+      />
+      <department-tag 
+        name="中医科" 
+        isActive="{{activeTag === '中医科'}}"
+        bind:tagtap="onTagChange"
+      />
+      <department-tag 
+        name="牙科" 
+        isActive="{{activeTag === '牙科'}}"
+        bind:tagtap="onTagChange"
+      />
+      <department-tag 
+        name="皮肤科" 
+        isActive="{{activeTag === '皮肤科'}}"
+        bind:tagtap="onTagChange"
+      />
+    </view>
+</view>
+<!-- 定位成功后才显示附近医院区域 -->
+<block wx:if="{{locationSuccess === true}}">
+  <view style="display: flex; justify-content: space-between; align-items: center; margin-top: 40rpx; margin-left: 30rpx; margin-right: 30rpx;">
+    <text style="font-size: {{fontSizes.content}};">附近医院</text>
+    <text style="font-size: {{fontSizes.time}}; color: #666;">{{locationText}}</text>
+  </view>
+
+  <!-- 有医院数据时显示列表 -->
+  <block wx:if="{{nearbyHospitals.length > 0}}">
+    <view class="hospital-card" wx:for="{{nearbyHospitals}}" wx:key="hospitalId">
+      <view style="display: flex;width: 100%;justify-content: space-between;align-items: center;">
+        <view style="display: flex;align-items: center;">
+          <image style="width: 50rpx;height: 50rpx;margin-right: 15rpx;" src="/images/Hospital.png" mode="aspectFit"></image>
+          <text style="font-size: {{fontSizes.content}};font-weight: bold;">{{item.hospitalName}}</text>
+        </view>
+        <view style="padding: 8rpx 20rpx;background-color: {{item.available ? '#99DD9C' : '#CFCEE8'}};border-radius: 10rpx;font-size: {{fontSizes.time}};">
+          {{item.available ? '可预约' : '已满'}}
+        </view>
+      </view>
+      <view style="margin-top: 15rpx;margin-left: 65rpx;">
+        <text style="font-size: {{fontSizes.time}}; color: #666;">📍 距离 {{item.distanceText}}</text>
+      </view>
+      <view 
+        class="booking-btn {{item.isReserved ? 'booking-btn-reserved' : (item.available ? 'booking-btn-active' : 'booking-btn-disabled')}}"
+        bindtap="{{item.isReserved ? '' : (item.available ? 'makeReservation' : '')}}"
+        data-hospital-id="{{item.hospitalId}}"
+        data-hospital-name="{{item.hospitalName}}">
+        <text style="font-size: {{fontSizes.button}};color: {{item.isReserved ? '#52C41A' : (item.available ? '#FF6B6B' : '#999')}};">
+          {{item.isReserved ? '✓ 已预约' : (item.available ? '立即预约' : '暂不可约')}}
+        </text>
+      </view>
+    </view>
+  </block>
+
+  <!-- 定位成功但搜索中或无结果 -->
+  <block wx:else>
+    <view style="text-align: center; padding: 100rpx 30rpx; color: #999;">
+      <text style="font-size: {{fontSizes.content}};">正在搜索附近医院...</text>
+    </view>
+  </block>
+</block>
+
+<!-- 定位未成功时只显示提示文字 -->
+<block wx:if="{{locationSuccess === false}}">
+  <view style="text-align: center; padding: 100rpx 30rpx; color: #999;">
+    <text style="font-size: {{fontSizes.content}};">{{locationText}}</text>
+  </view>
+</block>
+
+<!-- 底部占位 -->
+<view style="height: 100rpx;"></view>
+</scroll-view>

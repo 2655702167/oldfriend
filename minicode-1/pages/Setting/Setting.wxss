@@ -1,0 +1,185 @@
+
+.scroll-content {
+    /* 高度 = 屏幕高度 - 顶部导航栏高度(60rpx+140rpx=200rpx)，确保内容超出后可滚动 */
+    height: calc(100vh - 200rpx); 
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .scroll-content::-webkit-scrollbar {
+    display: none;
+  }
+
+
+
+
+/* 容器样式 */
+.setting-container {
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    font-family: PingFang SC, Microsoft YaHei, sans-serif;
+  }
+  .back-btn {
+    color: white;
+    font-size: 30rpx;
+    width: 80rpx;
+  }
+  .nav-title {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    flex: 1;
+  }
+  .empty-box {
+    width: 80rpx; /* 和返回按钮宽度一致，保证标题居中 */
+  }
+  
+  /* 设置项通用样式 */
+  .setting-item {
+    background-color: white;
+    margin-bottom: 20rpx;
+    padding: 20rpx 30rpx;
+    border-radius: 10rpx;
+  }
+  .item-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20rpx;
+  }
+  .item-icon {
+    width: 50rpx;
+    height: 50rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20rpx;
+    font-size: 30rpx;
+  }
+  .item-title {
+    flex: 1;
+    font-weight: 500;
+  }
+  .item-subtitle {
+    color: #888;
+    text-align: right;
+    width: 200rpx;
+  }
+  
+  /* 字体大小按钮 */
+  .font-size-btns {
+    display: flex;
+    gap: 15rpx;
+    margin-bottom: 20rpx;
+  }
+  .font-btn {
+    flex: 1;
+    padding: 15rpx 0;
+    border-radius: 8rpx;
+    background-color: #f5f5f5;
+  }
+  .font-btn.active {
+    background-color: #6C757D;
+    color: white;
+  }
+  
+  /* 预览区 */
+  .preview-area {
+    padding: 15rpx;
+    background-color: #f9f9f9;
+    border-radius: 8rpx;
+  }
+  
+  /* 音量滑块 */
+  .volume-slider {
+    padding: 10rpx 0;
+  }
+  
+  /* 方言选择器 */
+  .dialect-picker {
+    padding: 10rpx 0;
+  }
+  
+  /* 新增：方言按钮选择器 */
+  .dialect-selector {
+    padding: 15rpx 0;
+  }
+
+  /* 新增：方言滚动容器 */
+  .dialect-scroll-container {
+    max-height: 240rpx;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* iOS流畅滚动 */
+  }
+  
+  .dialect-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12rpx;
+    padding-bottom: 10rpx; /* 防止底部内容贴边 */
+  }
+  
+  .dialect-btn {
+    width: auto !important; /* 强制宽度自适应 */
+    margin: 0 !important;   /* 清除默认外边距 */
+    padding: 12rpx 24rpx;
+    background-color: #f5f5f5;
+    border: 2rpx solid #ddd;
+    border-radius: 20rpx;
+    font-size: 28rpx;
+    color: #333;
+    transition: all 0.3s ease;
+    font-weight: normal; /* 防止按钮文字加粗 */
+    line-height: 1.5;
+  }
+  
+  .dialect-btn.active {
+    background-color: #667eea;
+    color: white;
+    border-color: #667eea;
+  }
+  
+  .dialect-btn:active {
+    transform: scale(0.98);
+  }
+  
+  .dialect-desc {
+    color: #999;
+    padding: 10rpx 0;
+    margin-top: 10rpx;
+  }
+  
+  /* 音色选项 */
+  .voice-options {
+    padding: 10rpx 0;
+  }
+  .voice-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20rpx;
+  }
+  .voice-option checkbox {
+    margin-right: 15rpx;
+    transform: scale(1.2); /* 放大复选框 */
+  }
+  
+  /* 底部按钮 */
+  .bottom-btns {
+    display: flex;
+    gap: 20rpx;
+    padding: 30rpx 30rpx 100rpx 30rpx; /* 增加底部内边距，防止被全面屏横条遮挡 */
+  }
+  .reset-btn {
+    flex: 1;
+    padding: 20rpx 0;
+    background-color: white;
+    border: 1rpx solid #ddd;
+    color: #333;
+    border-radius: 8rpx;
+  }
+  .save-btn {
+    flex: 1;
+    padding: 20rpx 0;
+    background-color: #6C757D;
+    color: white;
+    border-radius: 8rpx;
+  }

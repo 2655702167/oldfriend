@@ -1,0 +1,143 @@
+<view style="height: 60rpx;"></view>
+<view style="height: 140rpx;background-color: #6C757D;display: flex;justify-content: center;width: 100%;align-items: center;">
+  <view style="width: 20%;height: 100rpx;display: flex;justify-content: center;align-items: center;">
+    <image style="width:80rpx;" src="/images/Left_arrow_gray.png" mode="widthFix" bind:tap="goToIndex"></image>
+  </view>
+  <view style="width: 80%;height: 100rpx;display: flex;justify-content: center;align-items: center;">
+    <text style="font-size: {{fontSizes.title}};color: white;margin-right: 25%;">设置</text>
+  </view>
+</view>
+
+
+<scroll-view 
+  class="scroll-content" 
+  scroll-y  
+>
+
+<view class="setting-container">
+  <!-- 字体档位选择 -->
+  <view class="setting-item">
+    <view class="item-header" style="font-size: {{fontSizes.content}};">
+      <view class="item-icon">T</view>
+      <view class="item-title">字体大小</view>
+      <view class="item-subtitle" style="font-size: {{fontSizes.time}};">
+        当前：{{currentFontLabel}}
+      </view>
+    </view>
+    <view class="font-size-btns">
+      <button 
+        class="font-btn {{selectedSize === 28 ? 'active' : ''}}"
+        data-value="28"
+        bindtap="selectFontSize"
+        style="font-size: {{fontSizes.button}};"
+      >
+        标准
+      </button>
+      <button 
+        class="font-btn {{selectedSize === 32 ? 'active' : ''}}"
+        data-value="32"
+        bindtap="selectFontSize"
+        style="font-size: {{fontSizes.button}};"
+      >
+        大号
+      </button>
+      <button 
+        class="font-btn {{selectedSize === 36 ? 'active' : ''}}"
+        data-value="36"
+        bindtap="selectFontSize"
+        style="font-size: {{fontSizes.button}};"
+      >
+        超大号
+      </button>
+    </view>
+    <!-- 预览效果 -->
+    <view class="preview-area">
+      <view style="font-size: {{fontSizes.title}};margin: 8rpx 0;">这是标题（基准×1.4）</view>
+      <view style="font-size: {{fontSizes.content}};margin: 8rpx 0;">这是正文（基准×1.0）</view>
+      <view style="font-size: {{fontSizes.button}};margin: 8rpx 0;">这是按钮文字（基准×1.1）</view>
+      <view style="font-size: {{fontSizes.time}};margin: 8rpx 0;">这是时间戳（基准×0.8）</view>
+    </view>
+  </view>
+
+  <!-- 语音音量设置 -->
+  <view class="setting-item">
+    <view class="item-header" style="font-size: {{fontSizes.content}};">
+      <view class="item-icon">🔊</view>
+      <view class="item-title">语音音量</view>
+      <view class="item-subtitle" style="font-size: {{fontSizes.time}};">
+        当前：{{volumeLevel}}
+      </view>
+    </view>
+    <view class="volume-slider">
+      <slider 
+        value="{{volumeValue}}" 
+        min="0" 
+        max="100" 
+        step="1"
+        bindchange="changeVolume"
+        activeColor="#6C757D"
+      />
+    </view>
+  </view>
+
+  <!-- 方言选择 -->
+  <view class="setting-item">
+    <view class="item-header" style="font-size: {{fontSizes.content}};">
+      <view class="item-icon">🗣️</view>
+      <view class="item-title">方言选择</view>
+      <view class="item-subtitle" style="font-size: {{fontSizes.time}};">
+        当前：{{selectedDialect}}
+      </view>
+    </view>
+    <view class="dialect-selector">
+      <scroll-view scroll-y="true" style="height: 300rpx;" enable-flex="true">
+        <view class="dialect-buttons">
+          <button 
+            class="dialect-btn {{item === selectedDialect ? 'active' : ''}}" 
+            wx:for="{{dialectList}}" 
+            wx:key="*this"
+            bindtap="selectDialectDirect"
+            data-dialect="{{item}}"
+            style="font-size: {{fontSizes.content}};"
+          >
+            {{item}}
+          </button>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <!-- 亲人音色设置 -->
+  <view class="setting-item">
+    <view class="item-header" style="font-size: {{fontSizes.content}};">
+      <view class="item-icon">🎵</view>
+      <view class="item-title">亲人音色设置</view>
+      <view class="item-subtitle" style="font-size: {{fontSizes.time}};">
+        让家人用声音陪伴您
+      </view>
+    </view>
+    <view class="voice-options">
+      <label class="voice-option" style="font-size: {{fontSizes.content}};">
+        <checkbox value="grandson" bindchange="selectVoice" />
+        <text>使用孙子声音</text>
+      </label>
+      <label class="voice-option" style="font-size: {{fontSizes.content}};">
+        <checkbox value="daughter" bindchange="selectVoice" />
+        <text>使用女儿声音</text>
+      </label>
+    </view>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="bottom-btns">
+    <button class="reset-btn" bindtap="resetDefault" style="font-size: {{fontSizes.button}};">
+      恢复默认设置
+    </button>
+    <button class="save-btn" bindtap="saveSetting" style="font-size: {{fontSizes.button}};">
+      保存设置
+    </button>
+  </view>
+</view>
+
+
+</scroll-view>

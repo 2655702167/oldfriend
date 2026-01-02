@@ -1,0 +1,79 @@
+<view class="page-wrap">
+<view style="height:60rpx"></view>
+<view class="nav-bar">
+  <view style="width:20%;">
+    <image style="width:80rpx;padding-left: 20rpx;" src="/images/Left_arrow_yellow.png" mode="widthFix" bind:tap="goToIndex"></image>
+  </view>
+  <view style="width: 80%;text-align:center;">
+    <text style="font-size: {{fontSizes.title}};margin-right: 24%;color: white;">老友陪聊</text>
+  </view>
+</view>
+
+
+
+
+<!-- 对话列表区域（直接嵌入你的页面） -->
+<scroll-view class="chat-container" scroll-y="true" scroll-with-animation="true" scroll-into-view="{{scrollIntoView}}">
+  <view class="chat-list">
+    <block wx:for="{{chatList}}" wx:key="id">
+      <!-- AI消息（左侧头像） -->
+      <view id="msg-{{item.id}}" class="chat-item ai-chat" wx:if="{{item.sender === 'ai'}}">
+        <image class="avatar" src="/images/ai_avatar.png" mode="widthFix" />
+        <view class="message-wrapper">
+          <view class="message ai-message" style="font-size: {{fontSizes.content}};">
+            <text>{{item.content}}</text>
+            <view class="time" style="font-size: {{fontSizes.time}};">{{item.time}}</view>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 自己消息（右侧头像） -->
+      <view id="msg-{{item.id}}" class="chat-item self-chat" wx:else>
+        <view class="message-wrapper">
+          <view class="message self-message" style="font-size: {{fontSizes.content}};">
+            <text>{{item.content}}</text>
+            <view class="time" style="font-size: {{fontSizes.time}};">{{item.time}}</view>
+          </view>
+        </view>
+        <image class="avatar" src="/images/user_avatar.png" mode="widthFix" />
+      </view>
+    </block>
+    <!-- 增加底部垫片高度，防止被输入框遮挡 -->
+    <view id="{{bottomId}}" style="height: 300rpx;"></view>
+  </view>
+</scroll-view>
+
+
+<!-- 输入区域 -->
+<view class="input-area">
+  <!-- 文本输入框 -->
+  <input 
+    class="text-input" 
+    placeholder="请输入消息..." 
+    value="{{inputContent}}"
+    bindinput="onInputChange"
+    bindconfirm="sendMessage"
+    style="font-size: {{fontSizes.content}};"
+  />
+  
+  <!-- 按钮行（同行排列：按住说话+发送） -->
+  <view class="btn-row">
+    <button class="voice-btn" style="font-size: {{fontSizes.button}};" bindlongpress="startRecord" bindtouchend="stopRecord">
+      按住说话
+    </button>
+    <button class="send-btn" bindtap="sendMessage" style="font-size: {{fontSizes.button}};">发送</button>
+  </view>
+  
+  <!-- 功能按钮区 -->
+  <view class="func-btns">
+    <button class="func-btn" bindtap="switchVoiceType" style="font-size: {{fontSizes.button}};">使用孙子音色</button>
+    <button class="func-btn" bindtap="enterFestivalMode" style="font-size: {{fontSizes.button}};">节日祝福模式</button>
+  </view>
+</view>
+
+<!-- 录音中弹窗 -->
+<view class="record-modal" wx:if="{{isRecording}}">
+  <view class="record-icon">🎤</view>
+  <view class="record-text">录音中...</view>
+</view>
+</view>

@@ -1,0 +1,32 @@
+<!-- help.wxml -->
+<view style="height: 60rpx;"></view>
+<view style="height: 140rpx; font-size: {{fontSizes.title}};display: flex;justify-content: center;align-items: center;background-color: #4A90E2;">帮助中心</view>
+<scroll-view class="help-container" scroll-y="true" enhanced="true" show-scrollbar="false">
+  <!-- 页面标题 -->
+  <view class="help-header">
+    <text class="help-subtitle" style="font-size: {{fontSizes.title}};">📖 常见问题解答</text>
+  </view>
+
+  <!-- FAQ 列表 - 可折叠展开 -->
+  <view class="faq-list">
+    <view class="faq-item" wx:for="{{faqList}}" wx:key="id">
+      <view class="faq-question" bindtap="toggleFAQ" data-id="{{item.id}}">
+        <text class="question-number" style="font-size: {{fontSizes.content}};">Q{{item.id}}</text>
+        <text class="question-text" style="font-size: {{fontSizes.content}};">{{item.question}}</text>
+        <text class="expand-icon">{{item.expanded ? '▲' : '▼'}}</text>
+      </view>
+      <view class="faq-answer {{item.expanded ? 'expanded' : ''}}" wx:if="{{item.expanded}}">
+        <text class="answer-text" style="font-size: {{fontSizes.content}};">{{item.answer}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部提示 -->
+  <view class="footer-tips">
+    <text class="tips-text" style="font-size: {{fontSizes.content}};">如果以上问题未能解决您的问题，请联系我们</text>
+    <text class="contact-text" bindtap="showContactInfo" style="font-size: {{fontSizes.time}};">联系我们</text>
+  </view>
+  
+  <!-- 底部占位，防止被tabbar遮挡 -->
+  <view style="height: 150rpx;"></view>
+</scroll-view>
